@@ -41,14 +41,53 @@ namespace WindowsPubs
             }
         }
 
+        private void mostrarPublishersParametrizado()
+        {
+            if (txtEstadoP.Text == "" && txtPaisP.Text == "")
+            {
+                gridPublishers.DataSource = AdminPublisher.Listar(txtCiudadP.Text);
+            }
+            else if(txtPaisP.Text == "")
+            {
+                gridPublishers.DataSource = AdminPublisher.Listar(txtCiudadP.Text, txtEstadoP.Text);
+            } else
+            {
+                gridPublishers.DataSource = AdminPublisher.Listar(txtCiudad.Text, txtEstadoP.Text, txtPaisP.Text);
+            }
+        }
+
         private void btnMostrarTodos_Click(object sender, EventArgs e)
         {
             mostrarAutores();
+        }
+
+        private void btnMostrarP_Click(object sender, EventArgs e)
+        {
+            mostrarPublishers();
+        }
+
+        private void mostrarPublishers()
+        {
+            gridPublishers.DataSource = AdminPublisher.Listar();
         }
 
         private void mostrarAutores()
         {
             gridAuthors.DataSource = AdmAuthor.Listar();
         }
+
+        private void btnBuscarP_Click(object sender, EventArgs e)
+        {
+            mostrarPublishersParametrizado();
+        }
+
+        
+
+        private void btnBuscarA_Click(object sender, EventArgs e)
+        {
+            mostrarAutoresParametrizado();
+        }
+
+        
     }
 }
