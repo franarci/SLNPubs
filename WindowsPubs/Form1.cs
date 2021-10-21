@@ -50,9 +50,10 @@ namespace WindowsPubs
             else if(txtPaisP.Text == "")
             {
                 gridPublishers.DataSource = AdminPublisher.Listar(txtCiudadP.Text, txtEstadoP.Text);
-            } else
+            }
+            else
             {
-                gridPublishers.DataSource = AdminPublisher.Listar(txtCiudad.Text, txtEstadoP.Text, txtPaisP.Text);
+                gridPublishers.DataSource = AdminPublisher.Listar(txtCiudadP.Text, txtEstadoP.Text, txtPaisP.Text);
             }
         }
 
