@@ -124,7 +124,7 @@ namespace Datos.Admin
 
         public static List<Publisher> Listar(string ciudad, string estado, string pais)
         {
-            string consultaSQL = "SELECT pub_id,pub_name,city,state,country FROM dbo.publishers WHERE city = @City AND state = @State AND country = @Country";
+            string consultaSQL = "SELECT pub_id,pub_name,city,state,country FROM dbo.publishers WHERE city = @City AND state is null OR state = @State AND country = @Country";
 
 
             //crear objeto sqlCommand
