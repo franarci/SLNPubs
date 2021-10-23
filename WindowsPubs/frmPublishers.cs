@@ -28,9 +28,25 @@ namespace WindowsPubs
             gridPublishers.DataSource = AdmPublisher.Listar();
         }
 
+        private void mostrarPublishersParametrizado()
+        {
+            if (txtEstado.Text == "" && txtPais.Text == "")
+            {
+                gridPublishers.DataSource = AdmPublisher.Listar(txtCiudad.Text);
+            }
+            else if (txtPais.Text == "")
+            {
+                gridPublishers.DataSource = AdmPublisher.Listar(txtCiudad.Text, txtEstado.Text);
+            }
+            else
+            {
+                gridPublishers.DataSource = AdmPublisher.Listar(txtCiudad.Text, txtEstado.Text, txtPais.Text);
+            }
+        }
+
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-
+            mostrarPublishersParametrizado();
         }
 
         private void btnMostrarTodos_Click(object sender, EventArgs e)
