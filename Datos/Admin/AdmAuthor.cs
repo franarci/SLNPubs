@@ -47,6 +47,8 @@ namespace Datos.Admin
             lector.Close();
             return lista;
         }
+
+
         public static List<Author> Listar(string ciudad)
         {
             //MODIFICAMOS ---> la consulta de SQL CON EL WHERE
@@ -91,6 +93,8 @@ namespace Datos.Admin
             return lista;
 
         }
+
+
         public static List<Author> Listar(string ciudad, string estado)
         {
             //MODIFICAMOS ---> la consulta de SQL CON EL WHERE
@@ -135,6 +139,38 @@ namespace Datos.Admin
             AdminDB.ConectarBase().Close();//cerramos la conexión
             reader.Close();
             return lista;
+
+        }
+
+        public static DataTable listarSoloCiudades()
+        {
+            
+            string consultaSQL = "SELECT DISTINCT city FROM dbo.authors";
+            
+            SqlDataAdapter adapter = new SqlDataAdapter(consultaSQL, AdminDB.ConectarBase());
+          
+            DataSet dataSet = new DataSet();
+          
+            adapter.Fill(dataSet, "ciudad");
+
+          
+            return dataSet.Tables["ciudad"];
+
+        }
+
+        public static DataTable listarDataTable(string ciudad)
+        {
+            string consultaSQL = "SELECT au_id,au_lname,au_fname,phone,address,city,state,zip,contract FROM dbo.authors where city = @city";
+
+            SqlDataAdapter adapter = new SqlDataAdapter(consultaSQL, AdminDB.ConectarBase());
+
+            adapter.SelectCommand.Parameters.Add("@city", SqlDbType.VarChar, 20).Value = ciudad;
+
+            DataSet ds = new DataSet();
+
+            adapter.Fill(ds, "ciudad");
+
+            return ds.Tables["ciudad"];
 
         }
     }
