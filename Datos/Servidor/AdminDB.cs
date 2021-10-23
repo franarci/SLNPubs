@@ -9,7 +9,6 @@ namespace Datos.Servidor
 {
     internal static class AdminDB
     {
-
         internal static SqlConnection ConectarBase()
         {
             string cadena = Properties.Settings.Default.KeyPubs;

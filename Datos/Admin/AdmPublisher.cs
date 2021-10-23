@@ -10,7 +10,7 @@ using System.Data;
 
 namespace Datos.Admin
 {
-    public static class AdminPublisher
+    public static class AdmPublisher
     {
         public static List<Publisher> Listar()
         {
