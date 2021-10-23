@@ -47,7 +47,7 @@ namespace WindowsPubs
 
         private void btnMostrarTodos_Click(object sender, EventArgs e)
         {
-
+            mostrarAutores();
         }
     }
 }
