@@ -30,5 +30,14 @@ namespace WindowsPubs
             gridAuthors.DataSource = AdmAuthor.Listar();
         }
 
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMostrarTodos_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
