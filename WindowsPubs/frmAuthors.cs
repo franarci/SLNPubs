@@ -26,11 +26,17 @@ namespace WindowsPubs
 
         private void llenarComboCiudad()
         {
-            DataTable Ciudad = AdmAuthor.listar();
+            DataTable ciudades = AdmAuthor.listarSoloCiudades();
 
-            cbCategoria.DataSource = Categoria;
-            cbCategoria.DisplayMember = Categoria.Columns["CategoryName"].ToString();
-            cbCategoria.ValueMember = Categoria.Columns["CategoryID"].ToString();
+            cbCiudad.DataSource = ciudades;
+            cbCiudad.DisplayMember = ciudades.Columns["city"].ToString();
+            cbCiudad.ValueMember = ciudades.Columns["city"].ToString();
+
+            // Agregar una fila al DataTable "Categoria" en memoria
+            DataRow fila = ciudades.NewRow();
+            fila["city"] = "[TODAS]";
+            ciudades.Rows.InsertAt(fila, 0);
+
         }
 
         private void mostrarAutoresParametrizado()
@@ -58,6 +64,22 @@ namespace WindowsPubs
         private void btnMostrarTodos_Click(object sender, EventArgs e)
         {
             mostrarAutores();
+        }
+
+        private void cbCiudad_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            
+            string ciudad =cbCiudad.SelectedValue.ToString();
+
+            if (ciudad == "[TODAS]")
+            {
+                mostrarAutores();
+            }
+            else
+            {
+                gridAuthors.DataSource = AdmAuthor.listarDataTable(ciudad);
+            }
+
         }
     }
 }

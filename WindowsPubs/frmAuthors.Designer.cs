@@ -117,6 +117,7 @@
             this.cbCiudad.Name = "cbCiudad";
             this.cbCiudad.Size = new System.Drawing.Size(121, 21);
             this.cbCiudad.TabIndex = 40;
+            this.cbCiudad.SelectionChangeCommitted += new System.EventHandler(this.cbCiudad_SelectionChangeCommitted);
             // 
             // frmAuthors
             // 
