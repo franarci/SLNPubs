@@ -27,5 +27,15 @@ namespace WindowsPubs
         {
             gridPublishers.DataSource = AdmPublisher.Listar();
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMostrarTodos_Click(object sender, EventArgs e)
+        {
+            mostrarPublishers();
+        }
     }
 }
