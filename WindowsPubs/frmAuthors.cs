@@ -20,7 +20,17 @@ namespace WindowsPubs
 
         private void frmAuthors_Load(object sender, EventArgs e)
         {
+            llenarComboCiudad();
             mostrarAutores();
+        }
+
+        private void llenarComboCiudad()
+        {
+            DataTable Ciudad = AdmAuthor.listar();
+
+            cbCategoria.DataSource = Categoria;
+            cbCategoria.DisplayMember = Categoria.Columns["CategoryName"].ToString();
+            cbCategoria.ValueMember = Categoria.Columns["CategoryID"].ToString();
         }
 
         private void mostrarAutoresParametrizado()

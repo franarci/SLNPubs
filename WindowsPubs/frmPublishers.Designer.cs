@@ -38,6 +38,7 @@
             this.txtEstado = new System.Windows.Forms.TextBox();
             this.btnMostrarTodos = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.cbCiudad = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.gridPublishers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,7 +46,7 @@
             // 
             this.lblPublishers.AutoSize = true;
             this.lblPublishers.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPublishers.Location = new System.Drawing.Point(484, 44);
+            this.lblPublishers.Location = new System.Drawing.Point(757, 38);
             this.lblPublishers.Name = "lblPublishers";
             this.lblPublishers.Size = new System.Drawing.Size(113, 25);
             this.lblPublishers.TabIndex = 22;
@@ -127,11 +128,20 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
+            // cbCiudad
+            // 
+            this.cbCiudad.FormattingEnabled = true;
+            this.cbCiudad.Location = new System.Drawing.Point(385, 72);
+            this.cbCiudad.Name = "cbCiudad";
+            this.cbCiudad.Size = new System.Drawing.Size(121, 21);
+            this.cbCiudad.TabIndex = 31;
+            // 
             // frmPublishers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(933, 450);
+            this.Controls.Add(this.cbCiudad);
             this.Controls.Add(this.lblPais);
             this.Controls.Add(this.txtPais);
             this.Controls.Add(this.lblEstado);
@@ -162,5 +172,6 @@
         private System.Windows.Forms.TextBox txtEstado;
         private System.Windows.Forms.Button btnMostrarTodos;
         private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.ComboBox cbCiudad;
     }
 }
