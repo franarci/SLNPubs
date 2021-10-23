@@ -23,7 +23,17 @@ namespace WindowsPubs
             mostrarAutores();
         }
 
-       
+        private void mostrarAutoresParametrizado()
+        {
+            if (txtEstado.Text == "")
+            {
+                gridAuthors.DataSource = AdmAuthor.Listar(txtCiudad.Text);
+            }
+            else
+            {
+                gridAuthors.DataSource = AdmAuthor.Listar(txtCiudad.Text, txtEstado.Text);
+            }
+        }
 
         private void mostrarAutores()
         {
