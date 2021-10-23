@@ -47,6 +47,95 @@ namespace Datos.Admin
             lector.Close();
             return lista;
         }
+        public static List<Author> Listar(string ciudad)
+        {
+            //MODIFICAMOS ---> la consulta de SQL CON EL WHERE
+            string consultaSQL = "SELECT au_id,au_lname,au_fname,phone,address,city,state,zip,contract FROM dbo.authors  WHERE city=@City";
 
+            //Crear un objeto SqlCommand
+            SqlCommand comando = new SqlCommand(consultaSQL, AdminDB.ConectarBase());
+
+
+            //AGREGAMOS ---> Declarar el parámetro de SQL Server 
+            comando.Parameters.Add("@City", SqlDbType.VarChar, 20).Value = ciudad;
+
+
+            //declarar un objeto SqlDataReader
+            SqlDataReader reader;
+
+            //crear el reader
+            reader = comando.ExecuteReader();
+
+            //Recorrer leer los datos hacia adelante
+            List<Author> lista = new List<Author>();
+
+            while (reader.Read())
+            {
+                lista.Add(
+                    new Author()
+                    {
+                        au_id = (string)reader["au_id"],
+                        au_lname = (string)reader["au_lname"],
+                        au_fname = (string)reader["au_fname"],
+                        phone = (string)reader["phone"],
+                        address = (string)reader["address"],
+                        city = (string)reader["city"],
+                        state = (string)reader["state"],
+                        zip = (string)reader["zip"],
+                        contract = (bool)reader["contract"]
+                    }
+                    );
+            }
+            AdminDB.ConectarBase().Close();//cerramos la conexión
+            reader.Close();
+            return lista;
+
+        }
+        public static List<Author> Listar(string ciudad, string estado)
+        {
+            //MODIFICAMOS ---> la consulta de SQL CON EL WHERE
+            string consultaSQL = "SELECT au_id,au_lname,au_fname,phone,address,city,state,zip,contract FROM dbo.authors  WHERE city=@City AND state=@State";
+
+            //Crear un objeto SqlCommand
+            SqlCommand comando = new SqlCommand(consultaSQL, AdminDB.ConectarBase());
+
+
+            //AGREGAMOS ---> Declarar el parámetro de SQL Server 
+            comando.Parameters.Add("@City", SqlDbType.VarChar, 20).Value = ciudad;
+
+            comando.Parameters.Add("@State", SqlDbType.Char, 2).Value = estado;
+
+
+            //declarar un objeto SqlDataReader
+            SqlDataReader reader;
+
+            //crear el reader
+            reader = comando.ExecuteReader();
+
+            //Recorrer leer los datos hacia adelante
+            List<Author> lista = new List<Author>();
+
+            while (reader.Read())
+            {
+                lista.Add(
+                    new Author()
+                    {
+                        au_id = (string)reader["au_id"],
+                        au_lname = (string)reader["au_lname"],
+                        au_fname = (string)reader["au_fname"],
+                        phone = (string)reader["phone"],
+                        address = (string)reader["address"],
+                        city = (string)reader["city"],
+                        state = (string)reader["state"],
+                        zip = (string)reader["zip"],
+                        contract = (bool)reader["contract"]
+                    }
+                    );
+            }
+            AdminDB.ConectarBase().Close();//cerramos la conexión
+            reader.Close();
+            return lista;
+
+        }
     }
 }
