@@ -32,7 +32,7 @@ namespace WindowsPubs
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-
+            mostrarAutoresParametrizado();
         }
 
         private void btnMostrarTodos_Click(object sender, EventArgs e)
